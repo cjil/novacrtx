@@ -1,1 +1,1 @@
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKscsLHKpE8FsuPlm/8tblf1ZYFXrGO/Ca3DHbccpCjR cjilbert@gmail.com - ArchLinux
+ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBPedDa8leU/wuhlzwLqeWAqfcuSLEDdX0Bs89VhMkMnB6RI816+wy+aj9DOs8Vl8nVqtUNT6TrA8ClryqqfBB3ytarrNACaqhGNUn2dUcalEztlbI3xcMe8jMmhRoHC9NA==
