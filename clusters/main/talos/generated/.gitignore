@@ -1,0 +1,3 @@
+main-k8s-control-01.yaml
+main-k8s-worker-01.yaml
+talosconfig
