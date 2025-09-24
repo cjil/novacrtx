@@ -35,11 +35,16 @@ spec:
         ingressClassName: internal
         enabled: true
         integrations:
+          nginx:
+            enabled: true
           certManager:
             enabled: true
             certificateIssuer: general-le-prod
         hosts:
-          - host: lldap.${DOMAIN_1}
+          - host: lldap.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
     workload:
       main:
         podSpec:
@@ -60,12 +65,6 @@ spec:
                 LLDAP_SMTP_OPTIONS__PASSWORD: ${SMTP_PASSWORD}
                 LLDAP_VERBOSE: false
                 LLDAP_key_file: /data/private_key
-    cnpg:
-      main:
-        enabled: true
-        mode: standalone
-        cluster:
-          singleNode: true
-        database: ${LLDAP_DB_NAME}
-        user: ${LLDAP_DB_USER}
-        password: ${LLDAP_DB_PASSWORD}
+
+
+
