@@ -69,16 +69,3 @@ spec:
         database: ${LLDAP_DB_NAME}
         user: ${LLDAP_DB_USER}
         password: ${LLDAP_DB_PASSWORD}
-
-    persistence:
-      data:
-        volsync:
-          - name: data
-            type: restic
-            credentials: minio
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 20 0 * * *
