@@ -62,9 +62,13 @@ spec:
                 LLDAP_key_file: /data/private_key
     cnpg:
       main:
-        mode: recovery
+        enabled: true
+        mode: standalone
         cluster:
           singleNode: true
+        database: ${LLDAP_DB_NAME}
+        user: ${LLDAP_DB_USER}
+        password: ${LLDAP_DB_PASSWORD}
 
     persistence:
       data:
