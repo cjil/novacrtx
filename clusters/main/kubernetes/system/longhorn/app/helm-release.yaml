@@ -37,22 +37,3 @@ spec:
       defaultClassReplicaCount: 1
     longhornUI:
       replicas: 1
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: "internal"
-        hosts:
-          - host: longhorn.${DOMAIN_0}
-            paths:
-              - path: /
-                pathType: Prefix
-        integrations:
-          nginx:
-            enabled: true
-          certManager:
-            enabled: true
-            certificateIssuer: domain-0-prod
-          auth:
-            type: "authelia"
-            internalHost: "authelia.authelia.svc.cluster.local:9091"
-            externalHost: "auth.${DOMAIN_0}"
