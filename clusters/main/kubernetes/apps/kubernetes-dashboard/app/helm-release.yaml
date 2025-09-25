@@ -46,7 +46,11 @@ spec:
             enabled: true
           certManager:
             enabled: true
-            certificateIssuer: general-le-prod
+            certificateIssuer: domain-0-prod
+          auth:
+            type: "authelia"
+            internalHost: "authelia.authelia.svc.cluster.local:9091"
+            externalHost: "auth.${DOMAIN_0}"
     service:
       main:
         type: LoadBalancer
