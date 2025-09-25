@@ -37,7 +37,7 @@ spec:
         enabled: true
         ingressClassName: "internal"
         hosts:
-          - host: dashboard.${DOMAIN_0}
+          - host: kube.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
@@ -51,13 +51,3 @@ spec:
             type: "authelia"
             internalHost: "authelia.authelia.svc.cluster.local:9091"
             externalHost: "auth.${DOMAIN_0}"
-    # service:
-    #   main:
-    #     type: LoadBalancer
-    #     loadBalancerIP: ${DASHBOARD_IP}
-    #     integrations:
-    #       metallb:
-    #         enabled: true
-    #     ports:
-    #       main:
-    #         port: 80
