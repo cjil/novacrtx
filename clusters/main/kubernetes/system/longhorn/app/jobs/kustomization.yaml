@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - kubernetes-dashboard/ks.yaml
-  - lldap/ks.yaml
-  - authelia/ks.yaml
+  - snapshod-delete.yaml
+  - snapshot-cleanup.yaml
+  - trim.yaml
