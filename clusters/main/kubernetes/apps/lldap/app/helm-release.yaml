@@ -73,11 +73,6 @@ spec:
                 LLDAP_SMTP_OPTIONS__PASSWORD: ${SMTP_PASSWORD}
                 LLDAP_VERBOSE: false
                 LLDAP_key_file: /data/private_key
-                # LLDAP must be told to overwrite the private key found in the volume.
-                LLDAP_FORCE_UPDATE_PRIVATE_KEY: "false"
-                # Since the private key is being updated, all passwords are invalidated.
-                # This ensures the default admin password from your configuration is re-set.
-                LLDAP_FORCE_LDAP_USER_PASS_RESET: "false"
     cnpg:
       main:
         mode: recovery
