@@ -30,6 +30,8 @@ spec:
       # Overprovisioning might be needed when using volsync
       storageOverProvisioningPercentage: 100000
       # v2DataEngine: true
+      # We are using Talos which does not need much space reserved for itself
+      storageReservedPercentageForDefaultDisk: 5
     persistence:
       # Set to false to pick another CSI as default
       defaultClass: true
