@@ -28,6 +28,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    credentials:
+      minio:
+          type: s3
+          url: "https://${S3_URL_MINIO}"
+          bucket: "${S3_BUCKET}-authelia"
+          accessKey: "${S3_ACCESS_KEY}"
+          secretKey: "${S3_SECRET_KEY}"
+          encrKey: "${S3_ENCRYPTION_KEY}"
     ingress:
       main:
         enabled: true
@@ -43,6 +51,35 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+    cnpg:
+      main:
+        # mode: recovery
+        cluster:
+          singleNode: true
+        backups:
+          enabled: true
+          credentials: minio
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 5 0 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false
+        recovery:
+          method: object_store
+          credentials: minio
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: minio
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 10 0 * * *
     workload:
       main:
         replicas: 1
