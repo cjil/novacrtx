@@ -58,7 +58,7 @@ spec:
                 pathType: Prefix
     workload:
       main:
-        replicas: 2
+        replicas: 1
         podSpec:
           containers:
             main:
