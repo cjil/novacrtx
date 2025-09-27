@@ -5,3 +5,4 @@ resources:
   - lldap/ks.yaml
   - authelia/ks.yaml
   - homepage/ks.yaml
+  - grafana/ks.yaml
