@@ -46,6 +46,9 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: domain-0-le-prod
+          homepage:
+            enabled: true
+            group: "Security"
         hosts:
           - host: auth.${DOMAIN_0}
             paths:
