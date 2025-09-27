@@ -85,7 +85,7 @@ spec:
                 schedule: 10 0 * * *
     workload:
       main:
-        replicas: 1
+        replicas: 2
         podSpec:
           containers:
             main:
