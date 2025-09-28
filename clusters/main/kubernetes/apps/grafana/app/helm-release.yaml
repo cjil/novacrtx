@@ -84,7 +84,7 @@ spec:
             widget:
               enabled: true
               type: "grafana"
-              url: "grafana.grafana.svc.cluster.local:3000"
+              url: "http://grafana.grafana.svc.cluster.local:3000"
               username: ${GRAFANA_ADMIN_USER}
               password: ${GRAFANA_ADMIN_PASSWORD}
           certManager:
