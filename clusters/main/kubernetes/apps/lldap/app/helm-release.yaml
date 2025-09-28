@@ -51,6 +51,8 @@ spec:
           homepage:
             enabled: true
             group: "Security"
+            widget:
+              enabled: false
         hosts:
           - host: lldap.${DOMAIN_0}
             paths:

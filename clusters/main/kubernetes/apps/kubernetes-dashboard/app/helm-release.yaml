@@ -51,6 +51,8 @@ spec:
           homepage:
             enabled: true
             group: "Administration"
+            widget:
+              enabled: false
           certManager:
             enabled: true
             certificateIssuer: domain-0-prod

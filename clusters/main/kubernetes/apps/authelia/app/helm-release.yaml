@@ -49,6 +49,8 @@ spec:
           homepage:
             enabled: true
             group: "Security"
+            widget:
+              enabled: false
         hosts:
           - host: auth.${DOMAIN_0}
             paths:

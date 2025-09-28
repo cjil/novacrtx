@@ -82,7 +82,7 @@ spec:
             enabled: true
             group: "Administration"
             widget:
-              enabled: true
+              enabled: false
               # type: "grafana"
               # url: "http://grafana.grafana.svc.cluster.local:3000"
               customkv:
