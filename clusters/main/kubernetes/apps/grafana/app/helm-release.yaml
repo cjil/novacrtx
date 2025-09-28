@@ -85,9 +85,11 @@ spec:
               enabled: true
               # type: "grafana"
               # url: "http://grafana.grafana.svc.cluster.local:3000"
-              custom:
-                username: ${GRAFANA_ADMIN_USER}
-                password: ${GRAFANA_ADMIN_PASSWORD}
+              customkv:
+                - key: username
+                  value: ${GRAFANA_ADMIN_USER}
+                - key: password
+                  value: ${GRAFANA_ADMIN_PASSWORD}
           certManager:
             enabled: true
             certificateIssuer: domain-0-le-prod
