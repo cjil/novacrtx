@@ -123,12 +123,12 @@ spec:
             - '*.${DOMAIN_0}'
           policy: one_factor #  TODO: change to two_factor
           subject:
-            - 'group:admin'
+            - 'group:lldap_admin'
         - domain:
             - "media.${DOMAIN_0}"
             - "nextcloud.${DOMAIN_0}"
           policy: one_factor
-          subject: group:user
+          subject: group:lldap_arr
       session:
         cookies:
           - domain: '${DOMAIN_0}'
