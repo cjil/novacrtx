@@ -86,7 +86,7 @@ spec:
           singleNode: true
         backups:
           enabled: true
-          revision: 2
+          revision: "2"
           credentials: minio
           scheduledBackups:
             - name: daily-backup
