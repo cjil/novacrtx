@@ -15,8 +15,6 @@ metadata:
     gethomepage.dev/group: Administration
     gethomepage.dev/icon: longhorn.svg
     gethomepage.dev/name: Longhorn
-    gethomepage.dev/weight: "10" # optional
-    gethomepage.dev/instance: "public" # optional
 spec:
   ingressClassName: "internal"
   rules:
