@@ -23,7 +23,7 @@ patches:
 nodes:
   # We would adivce to always stick to a "k8s-something-1" style naming scheme
   - hostname: k8s-control-01
-    ipAddress: ${MASTER1IP_IP}
+    ipAddress: ${MASTER1IP}
     controlPlane: true
     nameservers:
       - 1.1.1.1
@@ -34,14 +34,14 @@ nodes:
       # suffix is the adapter mac adres.
       - interface: eth0
         addresses:
-          - ${MASTER1IP_CIDR}
+          - ${MASTER1IP}/24
         routes:
           - network: 0.0.0.0/0
             gateway: ${GATEWAY}
         vip:
           ip: ${VIP}
   - hostname: k8s-worker-01
-    ipAddress: ${WORKER1IP_IP}
+    ipAddress: ${WORKER1IP}
     nameservers:
       - 1.1.1.1
       - 8.8.8.8
