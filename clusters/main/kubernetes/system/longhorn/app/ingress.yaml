@@ -10,6 +10,13 @@ metadata:
     nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
     cert-manager.io/cluster-issuer: general-le-prod
     cert-manager.io/private-key-rotation-policy: Always
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Longhorn is a lightweight, reliable, and easy-to-use distributed block storage system for Kubernetes."
+    gethomepage.dev/group: Administration
+    gethomepage.dev/icon: longhorn.svg
+    gethomepage.dev/name: Longhorn
+    gethomepage.dev/weight: "10" # optional
+    gethomepage.dev/instance: "public" # optional
 spec:
   ingressClassName: "internal"
   rules:
