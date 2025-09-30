@@ -3,6 +3,14 @@ kind: HelmRelease
 metadata:
   name: longhorn
   namespace: longhorn-system
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Longhorn is a lightweight, reliable, and easy-to-use distributed block storage system for Kubernetes."
+    gethomepage.dev/group: Administration
+    gethomepage.dev/icon: longhorn.svg
+    gethomepage.dev/name: Longhorn
+    gethomepage.dev/weight: 10 # optional
+    gethomepage.dev/instance: "public" # optional
 spec:
   interval: 5m
   releaseName: longhorn
