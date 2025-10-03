@@ -1,0 +1,119 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: authelia
+  namespace: authelia-dev
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: authelia
+      version: 29.15.3
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 5m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      minio:
+          type: s3
+          url: "http://${S3_URL_MINIO}"
+          bucket: "${S3_BUCKET}-authelia"
+          accessKey: "${S3_ACCESS_KEY}"
+          secretKey: "${S3_SECRET_KEY}"
+          encrKey: "${S3_ENCRYPTION_KEY}"
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        integrations:
+          nginx:
+            enabled: true
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-le-prod
+          homepage:
+            enabled: true
+            group: "Security"
+            widget:
+              enabled: false
+        hosts:
+          - host: auth.dev.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
+    cnpg:
+      main:
+        mode: recovery
+        cluster:
+          singleNode: true
+        backups:
+          enabled: true
+          credentials: minio
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 5 0 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false
+        recovery:
+          method: object_store
+          credentials: minio
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: minio
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 10 0 * * *
+      configfile:
+        enabled: true
+        type: configmap
+        objectName: authelia-configfile  
+        expandObjectName: false
+        mountPath: /configuration.yaml
+        subPath: configuration.yaml
+        readOnly: true
+      secrets:
+        enabled: true
+        type: secret
+        objectName: authelia-oidc-secret
+        expandObjectName: false
+        mountPath: /config/secret
+        readOnly: true
+    
+    secret:
+      authelia-configfile:
+        enabled: false
+
+    workload:
+      main:
+        replicas: 1
+        podSpec:
+          containers:
+            main:
+              env:
+                AUTHELIA_SESSION_SECRET: ${AUTHELIA_SESSION_KEY}
+                AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: ${AUTHELIA_JWT_KEY}
+                AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_ENCRYPTION_KEY}
+                X_AUTHELIA_CONFIG_FILTERS: template
+
