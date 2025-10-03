@@ -18,7 +18,7 @@ data:
     session:
       cookies:
         - domain: ${DOMAIN_0}
-          authelia_url: https://auth.${DOMAIN}
+          authelia_url: https://auth.${DOMAIN_0}
           default_redirection_url: 'https://www.${DOMAIN_0}'
     authentication_backend:
       # lldap setup
