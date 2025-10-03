@@ -73,6 +73,7 @@ spec:
         recovery:
           method: object_store
           credentials: minio
+          
     persistence:
       config:
         volsync:
