@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: authelia-configfile
-  namespace: authelia-dev
+  namespace: authelia
 data:
   configuration.yaml: |
     server:

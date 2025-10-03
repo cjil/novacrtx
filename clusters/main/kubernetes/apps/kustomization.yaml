@@ -6,4 +6,3 @@ resources:
   - authelia/ks.yaml
   - homepage/ks.yaml
   - grafana/ks.yaml
-  - authelia-dev/ks.yaml
