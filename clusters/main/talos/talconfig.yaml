@@ -26,8 +26,9 @@ nodes:
     ipAddress: ${MASTER1IP}
     controlPlane: true
     nameservers:
-      - 1.1.1.1
-      - 8.8.8.8
+      - 192.168.1.1
+      # - 1.1.1.1
+      # - 8.8.8.8
     installDiskSelector:
       size: <= 1600GB
     networkInterfaces:
@@ -43,8 +44,9 @@ nodes:
   - hostname: k8s-worker-01
     ipAddress: ${WORKER1IP}
     nameservers:
-      - 1.1.1.1
-      - 8.8.8.8
+      - 192.168.1.1
+      # - 1.1.1.1
+      # - 8.8.8.8
     installDiskSelector:
       size: <= 1600GB
     networkInterfaces:
