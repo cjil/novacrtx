@@ -70,6 +70,10 @@ data:
             - "nextcloud.${DOMAIN_0}"
           policy: one_factor
           subject: 'group:nextcloud'
+        - domain:
+            - "grafana.${DOMAIN_0}"
+          policy: one_factor
+          subject: 'group:grafana'
     identity_providers:
       oidc:
         claims_policies:
