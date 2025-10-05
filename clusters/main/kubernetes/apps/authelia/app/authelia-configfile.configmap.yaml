@@ -61,17 +61,20 @@ data:
             - ${DOMAIN_0}
             - '*.${DOMAIN_0}'
           policy: one_factor
-          subject: 'group:lldap_admin'
+          subject: 'group:admin'
         - domain:
             - "media.${DOMAIN_0}"
           policy: one_factor
-          subject: 'group:lldap_arr'
+          subject: 'group:arr'
         - domain:
             - "nextcloud.${DOMAIN_0}"
           policy: one_factor
-          subject: 'group:lldap_nextcloud'
+          subject: 'group:nextcloud'
     identity_providers:
       oidc:
+        claims_policies:
+          grafana:
+            id_token: ['email', 'name', 'groups', 'preferred_username']
         hmac_secret: {{ secret "/config/secret/hmac_secret" }}
         jwks:
           - key: |
@@ -85,6 +88,7 @@ data:
         clients:
           - client_id: 'grafana'
             client_name: 'Grafana'
+            claims_policy: 'grafana'
             client_secret: {{ secret "/config/secret/clients_grafana_client_secret" }}
             public: false
             authorization_policy: 'apps'
