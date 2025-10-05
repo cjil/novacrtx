@@ -4,6 +4,7 @@ kind: HelmRelease
 metadata:
   name: lldap
   namespace: lldap
+  
 spec:
   interval: 15m
   chart:
