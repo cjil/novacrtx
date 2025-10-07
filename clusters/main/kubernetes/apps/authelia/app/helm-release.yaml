@@ -36,7 +36,7 @@ spec:
           accessKey: "${S3_ACCESS_KEY}"
           secretKey: "${S3_SECRET_KEY}"
           encrKey: "${S3_ENCRYPTION_KEY}"
-          
+
     ingress:
       main:
         enabled: true
@@ -59,7 +59,7 @@ spec:
                 pathType: Prefix
     cnpg:
       main:
-        mode: recovery
+        # mode: recovery
         cluster:
           singleNode: true
         backups:
