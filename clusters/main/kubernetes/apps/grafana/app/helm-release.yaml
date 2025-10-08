@@ -64,12 +64,12 @@ spec:
                 GF_AUTH_GENERIC_OAUTH_NAME_ATTRIBUTE_PATH: name
                 GF_AUTH_GENERIC_OAUTH_USE_PKCE: true
                 GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: 'contains(groups[*], "grafana_admin") && "Admin" || contains(groups[*], "grafana_editor") && "Editor" || contains(groups[*], "grafana_viewer") && "Viewer"'
-                GF_AUTH_GENERIC_OAUTH_AUTH_STYLE: basic
+                GF_AUTH_GENERIC_OAUTH_CLIENT_AUTH_METHOD: client_secret_basic
     
     ingress:
       main:
         enabled: true
-        ingressClassName: "external"
+        ingressClassName: "internal"
         hosts:
           - host: grafana.${DOMAIN_0}
             paths:
@@ -78,10 +78,10 @@ spec:
         integrations:
           nginx:
             enabled: true
-            auth:
-              type: "authelia"
-              internalHost: "authelia.authelia.svc.cluster.local:9091"
-              externalHost: "auth.${DOMAIN_0}"
+            # auth:
+            #   type: "authelia"
+            #   internalHost: "authelia.authelia.svc.cluster.local:9091"
+            #   externalHost: "auth.${DOMAIN_0}"
           homepage:
             enabled: true
             group: "Administration"
