@@ -115,8 +115,8 @@ data:
             scopes:
               - 'openid'
               - 'profile'
-              - 'groups'
               - 'email'
+              - 'groups'
             response_types:
               - 'code'
             grant_types:
