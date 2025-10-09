@@ -83,6 +83,7 @@ data:
         jwks:
           - key: |
               {{ secret "/config/secret/jwks_key.pem" | mindent 10 "|" | msquote }}
+        enable_client_debug_messages: true
         authorization_policies:
           apps:
             default_policy: 'deny'
