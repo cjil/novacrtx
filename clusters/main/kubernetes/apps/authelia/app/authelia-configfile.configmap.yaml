@@ -118,8 +118,6 @@ data:
               - 'groups'
               - 'email'
             response_types:
-              - 'id_token'
-              - 'code'
               - 'token'
             grant_types:
               - 'authorization_code'
