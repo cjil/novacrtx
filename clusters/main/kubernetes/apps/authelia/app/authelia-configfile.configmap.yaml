@@ -119,6 +119,8 @@ data:
               - 'email'
             response_types:
               - 'code'
+              - 'token'
+              - 'id_token'
             grant_types:
               - 'authorization_code'
             access_token_signed_response_alg: 'none'
