@@ -118,7 +118,7 @@ data:
               - 'groups'
               - 'email'
             response_types:
-              - 'token'
+              - 'code'
             grant_types:
               - 'authorization_code'
             access_token_signed_response_alg: 'none'
