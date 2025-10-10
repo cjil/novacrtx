@@ -137,7 +137,7 @@ spec:
                 AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USERS_FILTER: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
                 AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDITIONAL_GROUPS_DN: ou=groups
                 AUTHELIA_AUTHENTICATION_BACKEND_LDAP_GROUPS_FILTER: (member={dn})
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USER: ${LLDAP_EMAIL}
+                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USER: uid=admin,ou=people,dc=${DN},dc=${DC}
                 AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD: ${LLDAP_PASSWORD}
                 AUTHELIA_NOTIFIER_SMTP_ADDRESS: 'smtp://${SMTP_HOST}:587'
                 AUTHELIA_NOTIFIER_SMTP_USERNAME: ${SMTP_USER}
