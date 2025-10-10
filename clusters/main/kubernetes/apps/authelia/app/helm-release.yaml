@@ -211,7 +211,8 @@ spec:
             - client_id: 'grafana'
               client_name: 'Grafana'
               claims_policy: 'grafana'
-              client_secret: '{{ secret "/config/secret/clients_grafana_client_secret" }}'
+              # client_secret: '{{ secret "/config/secret/clients_grafana_client_secret" }}'
+              client_secret: '$argon2id$v=19$m=65536,t=3,p=4$2GKXyfajWoH0P/wqriuSvQ$IjI0E7jP7lDZmqk6r01mABlHi3KbZzMwCzMCryC/QFc'
               public: false
               authorization_policy: 'grafana'
               require_pkce: true
