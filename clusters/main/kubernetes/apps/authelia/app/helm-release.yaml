@@ -93,14 +93,6 @@ spec:
               enabled: true
               trigger:
                 schedule: 10 0 * * *
-      # configfile:
-      #   enabled: true
-      #   type: configmap
-      #   objectName: authelia-configfile  
-      #   expandObjectName: false
-      #   mountPath: /configuration.yaml
-      #   subPath: configuration.yaml
-      #   readOnly: true
       secrets:
         enabled: true
         type: secret
@@ -109,10 +101,6 @@ spec:
         mountPath: /config/secret
         readOnly: true
     
-    # secret:
-    #   authelia-configfile:
-    #     enabled: false
-
     workload:
       main:
         replicas: 1
