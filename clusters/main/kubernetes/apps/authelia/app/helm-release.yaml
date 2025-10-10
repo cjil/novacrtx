@@ -188,7 +188,7 @@ spec:
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
-                {{- secret "/config/secret/jwks_key.pem" | nindent 10  }}
+                {{- secret "/config/secret/jwks_key.pem" | nindent 8  }}
           enable_client_debug_messages: true
           authorization_policies:
             apps:
