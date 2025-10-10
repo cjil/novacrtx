@@ -5,6 +5,8 @@ metadata:
   namespace: authelia
 data:
   configuration.yaml: |
+    log:
+      level: 'trace'
     server:
       buffers:
         read: 16384
