@@ -109,9 +109,9 @@ spec:
         mountPath: /config/secret
         readOnly: true
     
-    secret:
-      authelia-configfile:
-        enabled: false
+    # secret:
+    #   authelia-configfile:
+    #     enabled: false
 
     workload:
       main:
