@@ -79,10 +79,10 @@ data:
         claims_policies:
           grafana:
             id_token: ['email', 'name', 'groups', 'preferred_username']
-        hmac_secret: {{ secret "/config/secret/hmac_secret" }}
+        hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
         jwks:
           - key: |
-              {{ secret "/config/secret/jwks_key.pem" | mindent 10 "|" | msquote }}
+              '{{ secret "/config/secret/jwks_key.pem" | mindent 10 "|" | msquote }}'
         enable_client_debug_messages: true
         authorization_policies:
           apps:
@@ -105,7 +105,7 @@ data:
           - client_id: 'grafana'
             client_name: 'Grafana'
             claims_policy: 'grafana'
-            client_secret: {{ secret "/config/secret/clients_grafana_client_secret" }}
+            client_secret: '{{ secret "/config/secret/clients_grafana_client_secret" }}'
             public: false
             authorization_policy: 'grafana'
             require_pkce: true
