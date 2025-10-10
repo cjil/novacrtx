@@ -188,7 +188,7 @@ spec:
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
-                {{- secret "/config/secret/jwks_key.pem" | nindent 16  }}
+                {{- secret "/config/secret/jwks_key.pem" | nindent 10  }}
           enable_client_debug_messages: true
           authorization_policies:
             apps:
@@ -229,4 +229,4 @@ spec:
                 - 'authorization_code'
               access_token_signed_response_alg: 'none'
               userinfo_signed_response_alg: 'none'
-              token_endpoint_auth_method: 'client_secret_post'
+              token_endpoint_auth_method: 'client_secret_basic'
