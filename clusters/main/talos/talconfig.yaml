@@ -82,7 +82,7 @@ controlPlane:
       op: create
     - content: |
         [ NFSMount_Global_Options ]
-        nfsvers=4.2
+        nfsvers=4.1
         hard=True
         nconnect=16
         noatime=True
@@ -113,7 +113,7 @@ worker:
       op: create
     - content: |
         [ NFSMount_Global_Options ]
-        nfsvers=4.2
+        nfsvers=4.1
         hard=True
         nconnect=16
         noatime=True

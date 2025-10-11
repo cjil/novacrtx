@@ -117,6 +117,6 @@ spec:
       library:
         enabled: true
         type: nfs
-        server: ${NAS_IP}
+        server: ${SCALE_IP}
         path: ${ROMS_NFS}
         mountPath: /romm/library
