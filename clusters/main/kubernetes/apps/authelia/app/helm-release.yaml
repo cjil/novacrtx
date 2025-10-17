@@ -175,8 +175,8 @@ spec:
               id_token: ['email', 'email_verified', 'alt_emails', 'preferred_username', 'name']
             grafana:
               id_token: ['email', 'name', 'groups', 'preferred_username']
-            default:
-              id_token: ['rat', 'groups', 'email', 'email_verified', 'alt_emails', 'preferred_username', 'name']
+            vaultwarden:
+              id_token: ['email', 'groups', 'profile'] 
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
@@ -254,10 +254,12 @@ spec:
               token_endpoint_auth_method: 'client_secret_basic'
             - client_id: 'vaultwarden'
               client_name: 'vaultwarden'
+              claims_policy: 'vaultwarden'
               client_secret: '{{ secret "/config/secret/clients_vaultwarden_client_secret" }}'
               public: false
               authorization_policy: 'vaultwarden'
               require_pkce: true
+              pkce_challenge_method: 'S256'
               redirect_uris:
                 - 'https://vault.${DOMAIN_0}/identity/connect/oidc-signin'
               scopes:
@@ -265,4 +267,4 @@ spec:
                 - 'profile'
                 - 'openid'
                 - 'offline_access'
-              claims_policy: "default"
+              
