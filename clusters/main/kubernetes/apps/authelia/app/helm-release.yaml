@@ -259,7 +259,7 @@ spec:
               authorization_policy: 'vaultwarden'
               require_pkce: true
               redirect_uris:
-                - 'https://vaultwarden.${DOMAIN_2}/identity/connect/oidc-signin'
+                - 'https://vault.${DOMAIN_0}/identity/connect/oidc-signin'
               scopes:
                 - 'email'
                 - 'profile'
