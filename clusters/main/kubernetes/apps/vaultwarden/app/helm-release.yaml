@@ -146,7 +146,7 @@ spec:
               env:
                 EXPERIMENTAL_CLIENT_FEATURE_FLAGS: autofill-overlay,autofill-v2
                 SSO_ENABLED: true
-                SSO_ONLY: false
+                SSO_ONLY: true
                 SSO_SIGNUPS_MATCH_EMAIL: true
                 # SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION: Allow unknown email verification status (default false). Allowing this with SSO_SIGNUPS_MATCH_EMAIL open potential account takeover.
                 SSO_AUTHORITY: https://auth.${DOMAIN_0}
