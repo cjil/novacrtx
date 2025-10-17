@@ -68,6 +68,11 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: domain-0-le-prod
+          homepage:
+            enabled: true
+            group: "Security"
+            widget:
+              enbaled: false
         hosts:
           - host: vault.${DOMAIN_0}
             paths:
@@ -136,7 +141,7 @@ spec:
         podSpec:
           containers:
             main:
-              advanced: false
+              # advanced: false
               env:
                 EXPERIMENTAL_CLIENT_FEATURE_FLAGS: autofill-overlay,autofill-v2
                 SSO_ENABLED: true
