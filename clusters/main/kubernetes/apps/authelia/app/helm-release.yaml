@@ -254,7 +254,7 @@ spec:
               token_endpoint_auth_method: 'client_secret_basic'
             - client_id: 'vaultwarden'
               client_name: 'vaultwarden'
-              client_secret: {{ secret "/config/secret/clients_vaultwarden_client_secret" }}
+              client_secret: '{{ secret "/config/secret/clients_vaultwarden_client_secret" }}'
               public: false
               authorization_policy: 'vaultwarden'
               require_pkce: true
