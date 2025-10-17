@@ -71,8 +71,6 @@ spec:
           homepage:
             enabled: true
             group: "Security"
-            widget:
-              enbaled: false
         hosts:
           - host: vault.${DOMAIN_0}
             paths:
