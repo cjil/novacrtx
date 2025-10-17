@@ -26,6 +26,7 @@ spec:
   values:
     global:
       stopAll: false
+      skipEmptyWalArchiveCheck: true
     credentials:
       minio:
         type: s3
