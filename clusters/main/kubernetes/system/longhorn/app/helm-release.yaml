@@ -32,8 +32,6 @@ spec:
       # v2DataEngine: true
       # We are using Talos which does not need much space reserved for itself
       storageReservedPercentageForDefaultDisk: 5
-      # Set high-priority for restarting services
-      # priorityClass: high-priority-longhorn
     persistence:
       # Set to false to pick another CSI as default
       defaultClass: true
