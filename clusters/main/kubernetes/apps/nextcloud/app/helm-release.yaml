@@ -43,6 +43,11 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: domain-0-le-prod
+          homepage:
+            enabled: true
+            group: "Collaboration"
+            widget:
+              enabled: false
         hosts:
           - host: nextcloud1.${DOMAIN_0}
             paths:
