@@ -8,3 +8,4 @@ resources:
   - grafana/ks.yaml
   - romm/ks.yaml
   - vaultwarden/ks.yaml
+  - nextcloud/ks.yaml
