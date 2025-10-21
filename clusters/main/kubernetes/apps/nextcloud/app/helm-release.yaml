@@ -106,7 +106,7 @@ spec:
       data:
         enabled: true
         type: nfs
-        path: /${NEXTCLOUD_NFS_PATH}
+        path: ${NEXTCLOUD_NFS}
         server: ${NAS_IP}
       html:
         volsync:
