@@ -106,8 +106,8 @@ spec:
       data:
         enabled: true
         type: nfs
-        path: ${NEXTCLOUD_NFS}
         server: ${NAS_IP}
+        path: ${NEXTCLOUD_NFS}
       html:
         volsync:
         - name: html
@@ -122,6 +122,9 @@ spec:
     nextcloud:
       collabora:
         enabled: true
+        dictionaries:
+          - en_GB
+          - en_US
       credentials:
         initialAdminPassword: "${NEXTCLOUD_PASSWORD}"
         initialAdminUser: "${NEXTCLOUD_USER}"
