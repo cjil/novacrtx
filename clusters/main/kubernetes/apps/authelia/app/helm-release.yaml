@@ -213,6 +213,11 @@ spec:
                   subject: 'group:admin'
                 - policy: 'one_factor'
                   subject: 'group:vaultwarden'
+            nextcloud:
+              default_policy: 'deny'
+              rules:
+                - policy: 'two_factor'
+                  subject: 'group:nextcloud'
           clients:
             - client_id: 'grafana'
               client_name: 'Grafana'
@@ -272,6 +277,7 @@ spec:
               client_secret: '{{ secret "/config/secret/clients_nextcloud_client_secret" }}'
               public: false
               require_pkce: true
+              authorization_policy: 'nextcloud'
               pkce_challenge_method: 'S256'
               redirect_uris:
                 - 'https://nextcloud1.${DOMAIN_0}/apps/user_oidc/code'
