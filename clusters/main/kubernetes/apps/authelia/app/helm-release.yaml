@@ -117,16 +117,16 @@ spec:
                 AUTHELIA_SERVER_BUFFERS_WRITE: 16384
                 AUTHELIA_THEME: auto
                 AUTHELIA_TOTP_ISSUER: ${DOMAIN_0}
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDRESS: ldap://lldap-ldap.lldap.svc.cluster.local:3890
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_TLS_SERVER_NAME: lldap.${DOMAIN_0}
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_BASE_DN: dc=${DN},dc=${DC}
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ATTRIBUTES_USERNAME: uid
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDITIONAL_USERS_DN: ou=people
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USERS_FILTER: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDITIONAL_GROUPS_DN: ou=groups
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_GROUPS_FILTER: (member={dn})
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USER: uid=admin,ou=people,dc=${DN},dc=${DC}
-                AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD: ${LLDAP_PASSWORD}
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDRESS: ldap://lldap-ldap.lldap.svc.cluster.local:3890
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_TLS_SERVER_NAME: lldap.${DOMAIN_0}
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_BASE_DN: dc=${DN},dc=${DC}
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ATTRIBUTES_USERNAME: uid
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDITIONAL_USERS_DN: ou=people
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USERS_FILTER: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDITIONAL_GROUPS_DN: ou=groups
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_GROUPS_FILTER: (member={dn})
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_USER: uid=admin,ou=people,dc=${DN},dc=${DC}
+                # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD: ${LLDAP_PASSWORD}
                 AUTHELIA_NOTIFIER_SMTP_ADDRESS: 'smtp://${SMTP_HOST}:587'
                 AUTHELIA_NOTIFIER_SMTP_USERNAME: ${SMTP_USER}
                 AUTHELIA_NOTIFIER_SMTP_PASSWORD: ${SMTP_PASSWORD}
@@ -143,6 +143,25 @@ spec:
           - domain: ${DOMAIN_0}
             authelia_url: https://auth.${DOMAIN_0}
             default_redirection_url: 'https://www.${DOMAIN_0}'
+      authentication_backend:
+        ldap:
+          address: ldap://lldap-ldap.lldap.svc.cluster.local:3890
+          tls:
+            server_name: lldap.${DOMAIN_0}
+          base_dn: dc=${DN},dc=${DC}
+          attributes:
+            username: uid
+            extra:
+              immichquota:
+                name: immich_quota
+                multi_valued: false
+                value_type: integer
+          additional_users_dn: ou=people
+          users_filter: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
+          additional_groups_dn: ou=groups
+          groups_filter: (member={dn})
+          user: uid=admin,ou=people,dc=${DN},dc=${DC}
+          password: ${LLDAP_PASSWORD}
       password_policy:
         standard:
           enabled: true
@@ -177,6 +196,9 @@ spec:
               id_token: ['email', 'name', 'groups', 'preferred_username']
             vaultwarden:
               id_token: ['email', 'groups', 'profile'] 
+            immich:
+              custom_claims:
+                attribute: immich_quota
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
@@ -220,6 +242,11 @@ spec:
                   subject: 'group:nextcloud'
                 - policy: 'two_factor'
                   subject: 'group:nextcloud_admin'
+            immich:
+              default_policy: 'deny'
+              rules:
+                - policy: 'one_factor'
+                  subject: 'group:immich'
 
           clients:
             - client_id: 'grafana'
@@ -296,6 +323,26 @@ spec:
               access_token_signed_response_alg: 'none'
               userinfo_signed_response_alg: 'none'
               token_endpoint_auth_method: 'client_secret_post'
-
-
-              
+            - client_id: immich
+              client_name: Immich
+              claims_policy: immich
+              client_secret: '{{ secret "/config/secret/clients_immich_client_secret" }}'
+              public: false
+              authorization_policy: immich
+              require_pkce: false
+              redirect_uris:
+                - 'https://immich.${DOMAIN_0}/auth/login'
+                - 'https://immich.${DOMAIN_0}/user-settings'
+                - 'app.immich:///oauth-callback'
+              scopes:
+                - 'openid'
+                - 'profile'
+                - 'email'
+                - 'immich_scope'
+              response_types:
+                - 'code'
+              grant_types:
+                - 'authorization_code'
+              id_token_signed_response_alg: 'RS256'
+              userinfo_signed_response_alg: 'RS256'
+              token_endpoint_auth_method: 'client_secret_post'
