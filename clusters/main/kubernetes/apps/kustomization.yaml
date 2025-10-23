@@ -9,3 +9,4 @@ resources:
   - romm/ks.yaml
   - vaultwarden/ks.yaml
   - nextcloud/ks.yaml
+  - immich/ks.yaml
