@@ -218,6 +218,9 @@ spec:
               rules:
                 - policy: 'two_factor'
                   subject: 'group:nextcloud'
+                - policy: 'two_factor'
+                  subject: 'group:nextcloud_admin'
+
           clients:
             - client_id: 'grafana'
               client_name: 'Grafana'
