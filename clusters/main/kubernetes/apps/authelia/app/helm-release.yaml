@@ -267,4 +267,26 @@ spec:
                 - 'profile'
                 - 'openid'
                 - 'offline_access'
+            - client_id: 'nextcloud'
+              client_name: 'Nextcloud'
+              client_secret: '{{ secret "/config/secret/clients_nextcloud_client_secret" }}'
+              public: false
+              require_pkce: true
+              pkce_challenge_method: 'S256'
+              redirect_uris:
+                - 'https://nextcloud1.${DOMAIN_0}/apps/user_oidc/code'
+              scopes:
+                - 'openid'
+                - 'profile'
+                - 'email'
+                - 'groups'
+              response_types:
+                - 'code'
+              grant_types:
+                - 'authorization_code'
+              access_token_signed_response_alg: 'none'
+              userinfo_signed_response_alg: 'none'
+              token_endpoint_auth_method: 'client_secret_post'
+
+
               
