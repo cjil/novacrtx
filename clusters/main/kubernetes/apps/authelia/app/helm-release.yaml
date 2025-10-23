@@ -198,7 +198,8 @@ spec:
               id_token: ['email', 'groups', 'profile'] 
             immich:
               custom_claims:
-                attribute: immich_quota
+                immich_quota: 
+                  attribute: immich_quota
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
