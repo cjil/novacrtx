@@ -311,7 +311,7 @@ spec:
               authorization_policy: 'nextcloud'
               pkce_challenge_method: 'S256'
               redirect_uris:
-                - 'https://nextcloud1.${DOMAIN_0}/apps/user_oidc/code'
+                - 'https://nextcloud.${DOMAIN_0}/apps/user_oidc/code'
               scopes:
                 - 'openid'
                 - 'profile'

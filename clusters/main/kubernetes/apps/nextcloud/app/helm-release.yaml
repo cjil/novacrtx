@@ -51,7 +51,7 @@ spec:
             widget:
               enabled: false
         hosts:
-          - host: nextcloud1.${DOMAIN_0}
+          - host: nextcloud.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
@@ -72,7 +72,7 @@ spec:
             enabled: true
             certificateIssuer: domain-0-le-prod
         hosts:
-          - host: nextcloud1.${DOMAIN_0}
+          - host: nextcloud.${DOMAIN_0}
             paths:
               - path: /collabora/browser/dist/admin
                 pathType: Prefix
