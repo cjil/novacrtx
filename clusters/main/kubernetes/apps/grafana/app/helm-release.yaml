@@ -126,3 +126,8 @@ spec:
         recovery:
           method: object_store
           credentials: minio
+
+    resources:
+      requests:
+        cpu: 50m
+        memory: 200Mi
