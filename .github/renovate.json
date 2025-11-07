@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "helm-values": {
+    "fileMatch": ["**/*.yaml"]
+  },
+  "helm": {
+    "fileMatch": ["Chart.yaml", "requirements.yaml", "**/releases.yaml"]
+  },
+  "repositories": [
+    "https://helm.truecharts.org/"
+    // Add any other Helm repos you use here
+  ],
+  // Optional: Only update TrueCharts dependencies, if needed
+  "packageRules": [
+    {
+      "matchPackagePrefixes": ["truecharts/"],
+      "enabled": true
+    }
+  ],
+  "schedule": ["at any time"] // PRs can be created anytime the action runs
+}
