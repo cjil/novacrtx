@@ -2,29 +2,25 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "helm-values": {
-    // This pattern matches all .yaml files in any subdirectory
     "managerFilePatterns": ["**/*.yaml"]
   },
-  // Use helm-manager for Chart.yaml and requirements.yaml
-  "helm-manager": {
-    "managerFilePatterns": [
-      "Chart.yaml",
-      "requirements.yaml",
-      "**/releases.yaml"
-    ]
-  },
-  // "repositories" is now obsolete. External Helm repos should be defined under "helm"
-  "helm": {
-    "fileUrls": {
-      "truecharts": "https://helm.truecharts.org/"
-    }
+  "helmv3": {
+    "registries": [
+      {
+        "url": "https://helm.truecharts.org/",
+        "name": "truecharts",
+        "type": "helm"
+      }
+    ],
+    "managerFilePatterns": ["/(^|/)Chart\\.ya?ml$/", "**/releases.yaml"]
   },
   // Updated package rule to match any TrueCharts package
   "packageRules": [
     {
       "enabled": true,
       "matchPackageNames": ["truecharts/"],
-      "matchUpdateTypes": ["minor", "patch", "major"] // Ensure all updates are covered
+      "matchUpdateTypes": ["minor", "patch", "major"],
+      "matchManagers": ["helmv3", "helm-values"]
     }
   ],
   "schedule": ["at any time"]
