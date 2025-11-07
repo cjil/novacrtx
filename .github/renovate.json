@@ -8,15 +8,18 @@
     "registryAliases": {
       "truecharts": "https://helm.truecharts.org/"
     },
-    "managerFilePatterns": ["/(^|/)Chart\\.ya?ml$/", "**/releases.yaml"]
+    "managerFilePatterns": ["/(^|/)Chart\\.ya?ml$/", "**/releases.yaml"],
+    "enabled": false
   },
 
   "packageRules": [
     {
       "enabled": true,
-      "matchPackageNames": ["truecharts/"],
+      "matchPackagePrefixes": ["truecharts/"],
       "matchUpdateTypes": ["minor", "patch", "major"],
-      "matchManagers": ["helmv3", "helm-values"]
+      "matchManagers": ["helm-values"],
+      "datasource": "helm",
+      "looupName": "truecharts/{{depName}}"
     }
   ],
   "schedule": ["at any time"]
