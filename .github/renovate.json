@@ -1,25 +1,40 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended"
+  ],
   "helmv3": {
     "registryAliases": {
       "truecharts": "https://helm.truecharts.org/"
     },
-    "managerFilePatterns": ["/(^|/)Chart\\.ya?ml$/", "**/releases.yaml"],
+    "managerFilePatterns": [
+      "/(^|/)Chart\\.ya?ml$/",
+      "**/releases.yaml"
+    ],
     "enabled": false
   },
-
   "helm-values": {
-    "managerFilePatterns": ["**/*.yaml"]
+    "managerFilePatterns": [
+      "**/*.yaml"
+    ]
   },
-
   "packageRules": [
     {
       "enabled": true,
-      "matchManagers": ["helm-values"],
-      "matchPackagePrefixes": ["truecharts/"],
-      "matchUpdateTypes": ["minor", "patch", "major"]
+      "matchManagers": [
+        "helm-values"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "major"
+      ],
+      "matchPackageNames": [
+        "truecharts/{/,}**"
+      ]
     }
   ],
-  "schedule": ["at any time"]
+  "schedule": [
+    "at any time"
+  ]
 }
