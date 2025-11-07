@@ -5,16 +5,12 @@
     "managerFilePatterns": ["**/*.yaml"]
   },
   "helmv3": {
-    "registries": [
-      {
-        "url": "https://helm.truecharts.org/",
-        "name": "truecharts",
-        "type": "helm"
-      }
-    ],
+    "registryAliases": {
+      "truecharts": "https://helm.truecharts.org/"
+    },
     "managerFilePatterns": ["/(^|/)Chart\\.ya?ml$/", "**/releases.yaml"]
   },
-  // Updated package rule to match any TrueCharts package
+
   "packageRules": [
     {
       "enabled": true,
