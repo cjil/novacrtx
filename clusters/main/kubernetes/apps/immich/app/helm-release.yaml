@@ -65,6 +65,7 @@ spec:
 
     cnpg:
       main:
+        type: vectorchord
         cluster:
           singleNode: true
         mode: recovery
