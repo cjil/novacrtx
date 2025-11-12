@@ -2,40 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "github>trueforge-org/truecharts//.github/renovate/main.json5"
-  ],
-  "helmv3": {
-    "registryAliases": {
-      "truecharts": "https://helm.truecharts.org/"
-    },
-    "managerFilePatterns": [
-      "/(^|/)Chart\\.ya?ml$/",
-      "**/releases.yaml"
-    ],
-    "enabled": false
-  },
-  "helm-values": {
-    "managerFilePatterns": [
-      "**/*.yaml"
-    ]
-  },
-  "packageRules": [
-    {
-      "enabled": true,
-      "matchManagers": [
-        "helm-values"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "major"
-      ],
-      "matchPackageNames": [
-        "truecharts/{/,}**"
-      ]
-    }
-  ],
-  "schedule": [
-    "at any time"
+    "github>trueforge-org/truecharts//.github/renovate/main.json5",
+    "github>cjil/novacrtx//.github/custom.json5"
   ]
 }
