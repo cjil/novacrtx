@@ -21,4 +21,4 @@ jobs:
         with:
           # Use the default GITHUB_TOKEN for PR creation
           token: ${{ secrets.GITHUB_TOKEN }}
-          configurationFile: .github/renovate.json
+          configurationFile: .github/renovate.json5
