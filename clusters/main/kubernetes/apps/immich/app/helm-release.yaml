@@ -65,10 +65,10 @@ spec:
 
     cnpg:
       main:
-        type: vectorchord
         cluster:
           singleNode: true
-        # mode: recovery
+          instances: 1
+        mode: recovery
         backups:
           enabled: true
           credentials: minio
