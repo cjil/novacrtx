@@ -26,7 +26,7 @@ spec:
   values:
     crds:
       create: true
-    replicaCount: 1  # increaes replicas when I get more nodes
+    replicaCount: 2
     # monitoring:
     #   podMonitorEnabled: false
     #   grafanaDashboard:
