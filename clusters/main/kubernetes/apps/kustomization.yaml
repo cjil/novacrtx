@@ -10,3 +10,4 @@ resources:
   - vaultwarden/ks.yaml
   - nextcloud/ks.yaml
   - immich/ks.yaml
+  - spotweb/ks.yaml
