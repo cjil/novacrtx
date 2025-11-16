@@ -181,8 +181,9 @@ spec:
             subject: 'group:admin'
           - domain:
               - "media.${DOMAIN_0}"
+              - "sabnzbd.${DOMAIN_0}"
             policy: one_factor
-            subject: 'group:arr'
+            subject: 'group:media'
           - domain:
               - "nextcloud.${DOMAIN_0}"
             policy: one_factor
