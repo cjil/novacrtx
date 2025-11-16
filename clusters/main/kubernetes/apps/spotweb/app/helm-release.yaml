@@ -103,8 +103,8 @@ spec:
                 # DB_ENGINE: "pdo_pgsql"
                 # DB_PORT: "5432"
                 DB_DATABASE: ${SPOTWEB_DB}
-                DB_USER: {$SPOTWEB_DB_USER}
+                # DB_USER: {$SPOTWEB_DB_USER}
                 # DB_SCHEMA: "public"
-                DB_PASSWORD: ${SPOTWEB_DB_PASSWORD}
+                # DB_PASSWORD: ${SPOTWEB_DB_PASSWORD}
                 SPOTWEB_USERNAME: ${SPOTWEB_USERNAME}
                 SPOTWEB_PASSWORD: ${SPOTWEB_PASSWORD}
