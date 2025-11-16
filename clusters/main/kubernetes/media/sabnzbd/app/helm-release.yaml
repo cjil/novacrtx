@@ -43,9 +43,6 @@ spec:
         ingressClassName: internal
         hosts:
           - host: sabnzbd.${DOMAIN_0}
-            paths:
-              - path: /
-                pathType: Prefix
         integrations:
           nginx:
             enabled: true
