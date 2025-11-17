@@ -62,7 +62,7 @@ spec:
             widget:
               custom:
                 url: http://sabnzbd.media.svc.cluster.local:10097
-                # key: "${SAB_KEY}"
+                key: "${SAB_KEY}"
     workload:
       main:
         podSpec:
