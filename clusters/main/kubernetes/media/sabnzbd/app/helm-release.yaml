@@ -24,9 +24,9 @@ spec:
     remediation:
       retries: 3
   values:
-    portal:
-      open:
-        enabled: false
+    # portal:
+    #   open:
+    #     enabled: false
     global:
       stopAll: false
     credentials:
@@ -61,7 +61,7 @@ spec:
             group: "Downloaders"
             widget:
               custom:
-                url: http://sabnzbd.sabnzbd.svc.cluster.local:10097
+                url: http://sabnzbd.media.svc.cluster.local:10097
                 # key: "${SAB_KEY}"
     workload:
       main:
