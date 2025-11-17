@@ -4,7 +4,7 @@ metadata:
   name: sabnzbd
   namespace: media
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
       chart: sabnzbd
@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: truecharts
         namespace: flux-system
-      interval: 5m
+      interval: 15m
   install:
     createNamespace: true
     crds: CreateReplace
@@ -43,6 +43,9 @@ spec:
         ingressClassName: internal
         hosts:
           - host: sabnzbd1.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
         integrations:
           nginx:
             enabled: true
@@ -56,13 +59,21 @@ spec:
           homepage:
             enabled: true
             group: "Downloaders"
+            widget:
+              custom:
+                url: http://sabnzbd.sabnzbd.svc.cluster.local:10097
+                # key: "${SAB_KEY}"
     workload:
       main:
         podSpec:
           containers:
             main:
               env:
-                SABNZBD__HOST_WHITELIST_ENTRIES: sabnzbd1.${DOMAIN_0},sabnzbd.media.svc.cluster.local
+                SABNZBD__HOST_WHITELIST_ENTRIES: "sabnzbd1.${DOMAIN_0}, sabnzbd.media.svc"
+                SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
+            exportarr:
+              env:
+                URL: http://sabnzbd.media.svc.cluster.local:10097
     persistence:
       config:
         volsync:
@@ -78,7 +89,7 @@ spec:
       media:
         enabled: true
         existingClaim: media-nfs-pvc
-        mountPath: /Media
+        mountPath: /media
     
     resources:
       limits:
