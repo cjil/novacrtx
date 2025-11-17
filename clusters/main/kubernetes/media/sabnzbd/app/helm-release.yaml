@@ -42,7 +42,7 @@ spec:
         enabled: true
         ingressClassName: internal
         hosts:
-          - host: sabnzbd1.${DOMAIN_0}
+          - host: sabnzbd.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
@@ -69,7 +69,7 @@ spec:
           containers:
             main:
               env:
-                SABNZBD__HOST_WHITELIST_ENTRIES: "sabnzbd1.${DOMAIN_0}, sabnzbd.media.svc.cluster.local"
+                SABNZBD__HOST_WHITELIST_ENTRIES: "sabnzbd.${DOMAIN_0}, sabnzbd.media.svc.cluster.local"
                 SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
     persistence:
       config:
