@@ -176,9 +176,9 @@ spec:
         rules:
           - domain:
               - ${DOMAIN_0}
+              - '*.${DOMAIN_0}'
               - "recyclarr.${DOMAIN_0}"
               - "homepage.code.${DOMAIN_0}"
-              - '*.${DOMAIN_0}'
             policy: one_factor
             subject: 'group:admin'
           - domain:
@@ -191,10 +191,6 @@ spec:
               - "prowlarr.${DOMAIN_0}"
             policy: one_factor
             subject: 'group:media'
-          - domain:
-              - "nextcloud.${DOMAIN_0}"
-            policy: one_factor
-            subject: 'group:nextcloud'
       identity_providers:
         oidc:
           claims_policies:
@@ -214,11 +210,6 @@ spec:
                 {{- secret "/config/secret/jwks_key.pem" | nindent 8  }}
           enable_client_debug_messages: true
           authorization_policies:
-            apps:
-              default_policy: 'deny'
-              rules:
-                - policy: 'one_factor'
-                  subject: 'group:apps'
             grafana:
               default_policy: 'deny'
               rules:
