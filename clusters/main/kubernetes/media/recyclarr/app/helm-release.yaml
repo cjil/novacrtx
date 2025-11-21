@@ -57,7 +57,7 @@ spec:
         podSpec:
           initContainers:
             initconfig:
-              enabled: true # needs to be disabled on restore
+              enabled: false # needs to be disabled on restore
     persistence:
       config:
         volsync:
