@@ -4,3 +4,5 @@ resources:
   - namespace.yaml
   - pvc.yaml
   - sabnzbd/ks.yaml
+  - sonarr/ks.yaml
+  - sonarr-anime/ks.yaml
