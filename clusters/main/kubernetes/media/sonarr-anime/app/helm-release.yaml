@@ -51,10 +51,10 @@ spec:
           homepage:
             enabled: true
             group: "Arr"
-            # widget:
-            #   custom:
-            #     url: http://sabnzbd.media.svc.cluster.local:10097
-            #     key: "${SAB_KEY}"
+            widget:
+              custom:
+                url: http://sonarr-anime.media.svc.cluster.local:10097
+                key: "${SONARR_ANIME_KEY}"
         hosts:
           - host: anime.${DOMAIN_0}
     persistence:

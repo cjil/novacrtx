@@ -51,10 +51,10 @@ spec:
           homepage:
             enabled: true
             group: "Arr"
-            # widget:
-            #   custom:
-            #     url: http://sabnzbd.media.svc.cluster.local:10097
-            #     key: "${SAB_KEY}"
+            widget:
+              custom:
+                url: http://sonarr.media.svc.cluster.local:10097
+                key: "${SONARR_KEY}"
         hosts:
           - host: sonarr.${DOMAIN_0}
     persistence:
