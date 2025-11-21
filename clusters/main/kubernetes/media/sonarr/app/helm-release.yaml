@@ -53,7 +53,6 @@ spec:
             group: "Arr"
             widget:
               custom:
-                url: http://sonarr.media.svc.cluster.local:10097
                 key: "${SONARR_KEY}"
         hosts:
           - host: sonarr.${DOMAIN_0}
