@@ -172,15 +172,8 @@ spec:
           require_number: true
           require_special: true
       access_control:
+        default_policy: 'deny'
         rules:
-          - domain:
-              - ${DOMAIN_0}
-              - '*.${DOMAIN_0}'
-              - 'recyclarr.${DOMAIN_0}'
-              - 'homepage.code.${DOMAIN_0}'
-            policy: one_factor
-            subject: 
-              - 'group:admin'
           - domain:
               - 'anime.${DOMAIN_0}'
               - 'lidarr.${DOMAIN_0}'
@@ -190,8 +183,14 @@ spec:
               - 'sabnzbd.${DOMAIN_0}'
               - 'sonarr.${DOMAIN_0}'
             policy: one_factor
-            subject: 
-              - 'group:media'
+            subject: 'group:media'
+          - domain:
+              - ${DOMAIN_0}
+              - '*.${DOMAIN_0}'
+              - 'recyclarr.${DOMAIN_0}'
+              - 'homepage.code.${DOMAIN_0}'
+            policy: one_factor
+            subject: 'group:admin'
       identity_providers:
         oidc:
           claims_policies:
