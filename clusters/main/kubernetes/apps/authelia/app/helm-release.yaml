@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: authelia
-      version: 29.23.11
+      version: 29.24.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -112,7 +112,7 @@ spec:
                 AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: ${AUTHELIA_JWT_KEY}
                 AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_ENCRYPTION_KEY}
                 X_AUTHELIA_CONFIG_FILTERS: template
-                AUTHELIA_LOG_LEVEL: trace
+                AUTHELIA_LOG_LEVEL: info
                 AUTHELIA_SERVER_BUFFERS_READ: 16384
                 AUTHELIA_SERVER_BUFFERS_WRITE: 16384
                 AUTHELIA_THEME: auto
@@ -172,29 +172,26 @@ spec:
           require_number: true
           require_special: true
       access_control:
-        default_policy: 'deny'
         rules:
           - domain:
               - ${DOMAIN_0}
-              - "recyclarr.${DOMAIN_0}"
-              - "homepage.code.${DOMAIN_0}"
               - '*.${DOMAIN_0}'
+              - 'recyclarr.${DOMAIN_0}'
+              - 'homepage.code.${DOMAIN_0}'
             policy: one_factor
-            subject: 'group:admin'
+            subject: 
+              - 'group:admin'
           - domain:
-              - "media.${DOMAIN_0}"
-              - "sabnzbd.${DOMAIN_0}"
-              - "sonarr.${DOMAIN_0}"
-              - "anime.${DOMAIN_0}"
-              - "radarr.${DOMAIN_0}"
-              - "lidarr.${DOMAIN_0}"
-              - "prowlarr.${DOMAIN_0}"
+              - 'anime.${DOMAIN_0}'
+              - 'lidarr.${DOMAIN_0}'
+              - 'media.${DOMAIN_0}'
+              - 'prowlarr.${DOMAIN_0}'
+              - 'radarr.${DOMAIN_0}'
+              - 'sabnzbd.${DOMAIN_0}'
+              - 'sonarr.${DOMAIN_0}'
             policy: one_factor
-            subject: 'group:media'
-          - domain:
-              - "nextcloud.${DOMAIN_0}"
-            policy: one_factor
-            subject: 'group:nextcloud'
+            subject: 
+              - 'group:media'
       identity_providers:
         oidc:
           claims_policies:
@@ -214,11 +211,6 @@ spec:
                 {{- secret "/config/secret/jwks_key.pem" | nindent 8  }}
           enable_client_debug_messages: true
           authorization_policies:
-            apps:
-              default_policy: 'deny'
-              rules:
-                - policy: 'one_factor'
-                  subject: 'group:apps'
             grafana:
               default_policy: 'deny'
               rules:
