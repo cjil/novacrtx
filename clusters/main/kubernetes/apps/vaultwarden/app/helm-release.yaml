@@ -47,6 +47,9 @@ spec:
             certificateIssuer: domain-0-le-prod
           nginx:
             enabled: true
+          homepage:
+            enabled: true
+            group: "Security"
         hosts:
           - host: vault.${DOMAIN_0}
             paths:
@@ -71,9 +74,6 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: domain-0-le-prod
-          homepage:
-            enabled: true
-            group: "Security"
         hosts:
           - host: vault.${DOMAIN_0}
             paths:
