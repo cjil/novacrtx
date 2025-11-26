@@ -39,3 +39,12 @@ spec:
       defaultClassReplicaCount: 1
     longhornUI:
       replicas: 1
+    csi:  # Since we only have 2 nodes at the moment, reduce the number of replicas to the node count. Remove this when we add more nodes
+      attacher:
+        replicas: 2
+      provisioner:
+        replicas: 2
+      resizer:
+        replicas: 2
+      snapshotter:
+        replicas: 2
