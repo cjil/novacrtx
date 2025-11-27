@@ -4,3 +4,4 @@ resources:
   - snapshod-delete.yaml
   - snapshot-cleanup.yaml
   - trim.yaml
+  - snapshot-delete.yaml
