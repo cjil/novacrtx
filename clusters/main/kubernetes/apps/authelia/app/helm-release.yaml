@@ -151,11 +151,6 @@ spec:
           base_dn: dc=${DN},dc=${DC}
           attributes:
             username: uid
-            # extra:
-            #   immichquota:
-            #     name: immich_quota
-            #     multi_valued: false
-            #     value_type: integer
           additional_users_dn: ou=people
           users_filter: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
           additional_groups_dn: ou=groups
@@ -201,9 +196,7 @@ spec:
             vaultwarden:
               id_token: ['email', 'groups', 'profile'] 
             immich:
-              # custom_claims:
-              #   immich_quota: 
-              #     attribute: immich_quota
+              id_token: ['email', 'profile', 'immich_scope']
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
