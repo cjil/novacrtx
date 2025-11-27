@@ -238,9 +238,9 @@ spec:
             nextcloud:
               default_policy: 'deny'
               rules:
-                - policy: 'two_factor'
+                - policy: 'one_factor'
                   subject: 'group:nextcloud'
-                - policy: 'two_factor'
+                - policy: 'one_factor'
                   subject: 'group:nextcloud_admin'
             immich:
               default_policy: 'deny'
