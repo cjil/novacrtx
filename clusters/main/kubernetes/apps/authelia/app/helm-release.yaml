@@ -201,9 +201,9 @@ spec:
             vaultwarden:
               id_token: ['email', 'groups', 'profile'] 
             immich:
-              custom_claims:
-                immich_quota: 
-                  attribute: immich_quota
+              # custom_claims:
+              #   immich_quota: 
+              #     attribute: immich_quota
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
