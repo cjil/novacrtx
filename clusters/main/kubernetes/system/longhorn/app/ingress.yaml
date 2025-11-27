@@ -31,4 +31,5 @@ spec:
   tls:
     - hosts:
       - longhorn.${DOMAIN_0}
-      secretName: longhorn-tls-0
+      secretName: domain-0-le-prod
+
