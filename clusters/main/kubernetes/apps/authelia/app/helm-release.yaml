@@ -151,11 +151,11 @@ spec:
           base_dn: dc=${DN},dc=${DC}
           attributes:
             username: uid
-            extra:
-              immichquota:
-                name: immich_quota
-                multi_valued: false
-                value_type: integer
+            # extra:
+            #   immichquota:
+            #     name: immich_quota
+            #     multi_valued: false
+            #     value_type: integer
           additional_users_dn: ou=people
           users_filter: (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
           additional_groups_dn: ou=groups
