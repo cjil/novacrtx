@@ -55,5 +55,5 @@ spec:
               enabled: false
           certManager:
             enabled: true
-            certificateIssuer: domain-0-prod
+            certificateIssuer: domain-0-le-prod
 
