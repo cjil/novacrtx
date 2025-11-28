@@ -12,4 +12,6 @@ spec:
     name: cluster
   dependsOn:
     - name: longhorn
-
+    - name: cloudnative-pg
+    - name: cert-manager
+    - name: volsync

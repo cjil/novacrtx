@@ -12,3 +12,5 @@ spec:
     name: cluster
   dependsOn:
     - name: authelia
+    - name: cert-manager
+    - name: volsync

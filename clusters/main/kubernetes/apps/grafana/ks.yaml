@@ -12,3 +12,6 @@ spec:
     name: cluster
   dependsOn:
     - name: authelia
+    - name: cloudnative-pg
+    - name: cert-manager
+    - name: volsync
