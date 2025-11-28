@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - snapshod-delete.yaml
   - snapshot-cleanup.yaml
   - trim.yaml
   - snapshot-delete.yaml
