@@ -46,12 +46,9 @@ spec:
         default: true
         controllerValue: k8s.io/internal
       config:
-        # custom-http-errors: >-
+        #  Custom http errors can interfere with authelia redirections
+        # custom-http-errors: >-  
         #   401,403,404,500,501,502,503
-        # http-snippet: |
-        #   # Enforce Authelia redirect on 401/403 response from the verification endpoint
-        #   error_page 401 =302 https://auth.${DOMAIN_0}/;
-        #   error_page 403 =302 https://auth.${DOMAIN_0}/;
         allow-snippet-annotations: true
         annotations-risk-level: Critical
         client-body-buffer-size: 100M
