@@ -196,7 +196,7 @@ spec:
             vaultwarden:
               id_token: ['email', 'groups', 'profile'] 
             immich:
-              id_token: ['email', 'profile', 'immich_scope']
+              id_token: ['email', 'profile', 'name']
           hmac_secret: '{{ secret "/config/secret/hmac_secret" }}'
           jwks:
             - key: |
@@ -295,6 +295,8 @@ spec:
                 - 'profile'
                 - 'openid'
                 - 'offline_access'
+              response_types:
+                - 'code'
             - client_id: 'nextcloud'
               client_name: 'Nextcloud'
               client_secret: '{{ secret "/config/secret/clients_nextcloud_client_secret" }}'
@@ -331,7 +333,6 @@ spec:
                 - 'openid'
                 - 'profile'
                 - 'email'
-                - 'immich_scope'
               response_types:
                 - 'code'
               grant_types:
