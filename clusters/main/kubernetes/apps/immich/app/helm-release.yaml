@@ -68,7 +68,7 @@ spec:
         cluster:
           singleNode: true
           instances: 1
-        # mode: recovery
+        mode: recovery
         backups:
           enabled: true
           credentials: minio
