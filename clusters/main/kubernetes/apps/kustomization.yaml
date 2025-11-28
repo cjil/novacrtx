@@ -1,13 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # - kubernetes-dashboard/ks.yaml
+  - kubernetes-dashboard/ks.yaml
   - lldap/ks.yaml
   - authelia/ks.yaml
   - homepage/ks.yaml
-  # - grafana/ks.yaml
+  - grafana/ks.yaml
   - romm/ks.yaml
   - vaultwarden/ks.yaml
-  # - nextcloud/ks.yaml
-  # - immich/ks.yaml
+  - nextcloud/ks.yaml
+  - immich/ks.yaml
   # - spotweb/ks.yaml
