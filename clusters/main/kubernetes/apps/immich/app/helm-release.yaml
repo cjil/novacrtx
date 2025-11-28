@@ -68,10 +68,9 @@ spec:
         cluster:
           singleNode: true
           instances: 1
-        mode: recovery
+        # mode: recovery
         backups:
           enabled: true
-          revision: "1"
           credentials: minio
           scheduledBackups:
             - name: daily-backup
