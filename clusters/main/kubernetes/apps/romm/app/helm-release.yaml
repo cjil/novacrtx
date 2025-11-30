@@ -120,3 +120,7 @@ spec:
         server: ${NAS_IP}
         path: ${ROMS_NFS}
         mountPath: /romm/library
+
+      mariadb:
+        enabled: true
+ 
