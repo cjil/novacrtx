@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: cluster
-  dependsOn:
-    - name: authelia
-    - name: cert-manager
-    - name: volsync
+  # dependsOn:
+  #   - name: authelia
+  #   - name: cert-manager
+  #   - name: volsync

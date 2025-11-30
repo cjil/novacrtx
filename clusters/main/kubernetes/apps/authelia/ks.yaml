@@ -10,9 +10,9 @@ spec:
   sourceRef:
     kind: GitRepository
     name: cluster
-  dependsOn:
-    - name: lldap
-    - name: cloudnative-pg
-    - name: cert-manager
-    - name: volsync
+  # dependsOn:
+  #   - name: lldap
+  #   - name: cloudnative-pg
+  #   - name: cert-manager
+  #   - name: volsync
 
